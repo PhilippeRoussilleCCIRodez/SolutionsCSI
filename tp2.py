@@ -1,5 +1,5 @@
 """Fichier du TP 2."""
-from math import sin
+from math import inf, sin
 from random import randint
 import time
 
@@ -55,7 +55,17 @@ def jeu_pas_trop_super():
         else:
             print("Raté !")
 
-jeu_pas_trop_super()
+def pente(x_a, y_a, x_b, y_b):
+    """Exo 5."""
+    try:
+        pente = (y_a - y_b)/(x_a - x_b)
+    except ZeroDivisionError:
+        print("Divison par 0 !")
+        pente = inf
+    return pente
+
+print(pente(1,2,3,4))
+print(pente(0,1,0,2))
 
 # ####################################
 # # Partie magie-vaudou
