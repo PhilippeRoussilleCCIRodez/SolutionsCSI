@@ -33,7 +33,7 @@ def ouvrir():
             print("Ce fichier n'existe pas.")
 
 def jeu_pas_trop_super():
-    """Exo 4."""
+    """Exo 4.""""editor.rulers"
     temps = randint (0 ,100)
     print(f"Vous devez arrêter le programme sur {temps}.")
     print("Pour arrêter le programme, il faut faire Ctrl+C.")
@@ -78,7 +78,25 @@ def racines(a, b, c):
     else:
         raise NameError("ARGH ! DAMNED ! FICHTRE ! PAS DE RACINE RÉELLE !")
 
-racines(1,0,1)
+#racines(1,0,1)
+
+def fibonacci(n, appels = 0):
+    """Calcule le n-ème terme de la suite de Fibonacci."""
+    # Désactivation de warnings particuliers pour l'exercice.
+    # pylint: disable=C0103
+    # pylint: disable=R1714
+    if appels >= 100:
+        raise OverflowError("Trop de calculs (freinez votre enthousiasme)")
+    if n == 0 or n == 1:
+        resultat = 1
+    else :
+        resultat1, appels1 = fibonacci(n - 1, appels + 1)
+        resultat2, appels2 = fibonacci(n - 2, appels + 1)
+        appels = appels1 + appels2
+        resultat = resultat1 + resultat2
+    return resultat, appels
+
+print(fibonacci(25)[0])
 
 # ####################################
 # # Partie magie-vaudou
