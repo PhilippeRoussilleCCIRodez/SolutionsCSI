@@ -1,5 +1,5 @@
 """Fichier du TP 2."""
-from math import inf, sin
+from math import inf, sin, sqrt
 from random import randint
 import time
 
@@ -58,14 +58,27 @@ def jeu_pas_trop_super():
 def pente(x_a, y_a, x_b, y_b):
     """Exo 5."""
     try:
-        pente = (y_a - y_b)/(x_a - x_b)
+        pente_droite = (y_a - y_b)/(x_a - x_b)
     except ZeroDivisionError:
         print("Divison par 0 !")
-        pente = inf
-    return pente
+        pente_droite = inf
+    return pente_droite
 
-print(pente(1,2,3,4))
-print(pente(0,1,0,2))
+def racines(a, b, c):
+    """Exercice 6."""
+    # Cette instruction désactive pylint pour la variable monosymbolique
+    # pylint: disable=C0103
+    discriminant = b*b - 4 * a * c
+    if discriminant == 0:
+        print("La racine est ", - b/( 2 * a))
+    elif discriminant > 0:
+        r1 = (-b - sqrt(discriminant))/(2 * a)
+        r2 = (-b + sqrt(discriminant))/(2 * a)
+        print("Les racines sont : ", r1, r2)
+    else:
+        raise NameError("ARGH ! DAMNED ! FICHTRE ! PAS DE RACINE RÉELLE !")
+
+racines(1,0,1)
 
 # ####################################
 # # Partie magie-vaudou
