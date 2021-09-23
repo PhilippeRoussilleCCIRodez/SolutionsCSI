@@ -20,7 +20,7 @@ def lendemain(j : int, m : int, a : int) -> Tuple[int, int, int]:
         a += 1
     return (j, m, a)
 
-class Lendemain(unittest.TestCase):
+class TestLendemain(unittest.TestCase):
 
     def test_bissextile_bizarre(self):
         with self.assertRaises(TypeError):
